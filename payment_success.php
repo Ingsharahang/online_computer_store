@@ -1,18 +1,21 @@
 <?php
 require_once "header.php";
 
-$total = $_GET['total'] ?? 0;
+$order = $_GET['order'] ?? null;
 ?>
 
-<div class="container py-5 text-center" style="max-width:600px;">
+<div class="container py-5 text-center">
 
     <div class="alert alert-success p-4 shadow-sm">
         <h3 class="fw-bold mb-2">Payment Successful!</h3>
-        <p class="mb-4">Your order has been placed.</p>
-        <h4 class="fw-bold text-success">$<?= number_format($total,2) ?></h4>
+        <p>Your order has been placed.</p>
+
+        <?php if ($order): ?>
+            <p class="fw-bold">Order #: <?= $order ?></p>
+        <?php endif; ?>
     </div>
 
-    <a href="products.php" class="btn btn-dark mt-3">Continue Shopping</a>
+    <a href="orders.php" class="btn btn-dark mt-3">View My Orders</a>
 
 </div>
 
