@@ -60,3 +60,21 @@ password: @sukuna258@@
 Name: Ingsharahang Edhingo Limbu, Rajiv Kumar Limbu
 Student ID: 5144361, 5144378
 ```
+
+## Screenshots
+
+### Homepage
+
+![Homepage](screenshots/home.png)
+
+### Products Page
+
+![Products Page](screenshots/product.png)
+
+### Cart Page
+
+![Cart Page](screenshots/cart.png)
+
+### Admin Dashboard
+
+![Admin Login](screenshots/Adminlogin.png)
