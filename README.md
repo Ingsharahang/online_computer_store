@@ -47,6 +47,15 @@ $pass = "";
 $port = "3307";
 $dbname = "computer_store";
 
+#login Information
+#Admin
+Email: kushanglimbu123@gmail.com
+password: @sukuna258@@
+
+#User
+Email: kushanglimbu@gmail.com
+password: @sukuna258@@
+
 ## Author
 Name: Ingsharahang Edhingo Limbu, Rajiv Kumar Limbu
 Student ID: 5144361, 5144378
