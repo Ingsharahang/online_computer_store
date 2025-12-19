@@ -5,7 +5,7 @@ $host = "localhost";
 $user = "root";
 $pass = "";
 $dbname = "computer_store";
-$port = 3307; // IMPORTANT
+$port = 3306; 
 
 $conn = new mysqli($host, $user, $pass, $dbname, $port);
 

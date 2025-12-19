@@ -1,0 +1,29 @@
+{
+  "name": "online_store",
+  "version": "1.0.0",
+  "description": "This is a full-stack web application that simulates an online computer store.  \r Users can browse products by category, add items to a shopping cart, and place orders through a checkout flow.  \r Admins can manage products (add/edit/delete) and view customer orders.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass sass:css --watch",
+    "sass-build": "sass sass:css",
+    "sass-watch": "sass --watch --no-source-map sass:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ingsharahang/online_computer_store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ingsharahang/online_computer_store/issues"
+  },
+  "homepage": "https://github.com/Ingsharahang/online_computer_store#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "sass": "^1.97.0"
+  }
+}
