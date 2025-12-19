@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Dec 06, 2025 at 01:09 AM
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 19, 2025 at 04:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -39,7 +39,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `product_id`, `quantity`) VALUES
-(7, 2, 10, 1);
+(14, 7, 24, 1);
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,13 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `user_id`, `total_price`, `order_date`) VALUES
 (1, 2, 799.99, '2025-12-04 18:34:50'),
-(2, 2, 99.98, '2025-12-04 23:38:15');
+(2, 2, 99.98, '2025-12-04 23:38:15'),
+(3, 2, 2236.07, '2025-12-05 20:00:15'),
+(4, 4, 970.47, '2025-12-05 20:01:03'),
+(5, 4, 66.48, '2025-12-05 20:28:24'),
+(6, 9, 2156.98, '2025-12-05 21:53:52'),
+(7, 2, 122.97, '2025-12-18 17:30:37'),
+(8, 11, 2721.96, '2025-12-18 22:06:13');
 
 -- --------------------------------------------------------
 
@@ -82,7 +88,15 @@ CREATE TABLE `order_items` (
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
 (1, 1, 9, 1, 799.99),
-(2, 2, 24, 2, 49.99);
+(2, 2, 24, 2, 49.99),
+(3, 3, 10, 1, 1899.99),
+(4, 3, 31, 1, 69.99),
+(5, 4, 9, 1, 799.99),
+(6, 4, 24, 1, 49.99),
+(7, 5, 24, 1, 49.99),
+(8, 6, 10, 1, 1899.99),
+(9, 7, 24, 2, 49.99),
+(10, 8, 9, 3, 799.99);
 
 -- --------------------------------------------------------
 
@@ -150,13 +164,12 @@ INSERT INTO `products` (`id`, `name`, `brand`, `description`, `price`, `image_ur
 (42, 'AOC 24G2', 'Other', 'Budget gaming monitor', 199.99, 'https://m.media-amazon.com/images/I/81J4utZ5bnL.jpg', 'monitor', 15),
 (43, 'Asus TUF VG27AQ', 'ASUS', '1440p gaming monitor', 429.99, 'https://c1.neweggimages.com/productimage/nb640/24-236-987-03.png', 'monitor', 7),
 (44, 'BenQ EX3501R', 'BenQ', 'Ultra-wide monitor', 599.99, 'https://www.bhphotovideo.com/images/fb/benq_ex3501r_premium_grey_35_va_3440x1440_1383775.jpg', 'monitor', 6),
-(45, 'Logitech G Pro', 'Other', 'Mechanical gaming keyboard', 149.99, 'https://www.londondrugs.com/_next/image?url=https%3A%2F%2Fcdn.cs.1worldsync.com%2Fee%2Fcf%2Feecfddfd-8d29-4959-aedb-81b55451e008.jpg&w=640&q=75', 'keyboard', 20),
+(45, 'Logitech G Pro', 'Other', 'Mechanical gaming keyboard', 149.99, 'https://cdn.cs.1worldsync.com/08/13/0813f76d-1ae3-4a7f-bcb7-9f5cc52c1393.jpg', 'keyboard', 20),
 (46, 'Razer Huntsman Mini', 'Razer', '60% gaming keyboard', 139.99, 'https://m.media-amazon.com/images/I/6121HGF8WLL.jpg', 'keyboard', 18),
 (47, 'Corsair K95 RGB', 'Other', 'Full-size RGB keyboard', 199.99, 'https://assets.corsair.com/image/upload/c_pad,q_auto,h_1024,w_1024,f_auto/products/Gaming-Keyboards/CH-9000221-ND/Gallery/CGK95_RGB_NA_001.webp', 'keyboard', 12),
 (48, 'Logitech G502', 'Other', 'Wired gaming mouse', 89.99, 'https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_UF894,1000_QL80_.jpg', 'mouse', 25),
 (49, 'Razer Viper Ultimate', 'Razer', 'Wireless gaming mouse', 159.99, 'https://www.bhphotovideo.com/images/fb/razer_rz01_03050100_r3u1_viper_ultimate_wireless_1710288.jpg', 'mouse', 15),
-(50, 'Corsair RM750x', 'Other', '750W modular PSU', 169.99, 'https://m.media-amazon.com/images/I/71ceFvqCLpL._AC_UF894,1000_QL80_.jpg', 'psu', 10),
-(51, 'EVGA SuperNova 850 G5', 'Other', '850W gold PSU', 189.99, 'https://c1.neweggimages.com/productimage/nb640/17-438-161-Z01.jpg', 'psu', 7);
+(50, 'Corsair RM750x', 'Other', '750W modular PSU', 169.99, 'https://m.media-amazon.com/images/I/71ceFvqCLpL._AC_UF894,1000_QL80_.jpg', 'psu', 10);
 
 -- --------------------------------------------------------
 
@@ -179,7 +192,12 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`) VALUES
 (1, 'Admin User', 'admin@example.com', '$2y$10$yAMh7IfBxp1p6uHJPtHNDOxMaOGBfZpBkSNfmOSUC1rKcJUxIgV8G', 1),
 (2, 'Ingsharahang Edhingo Limbu', 'kushanglimbu@gmail.com', '$2y$10$r9jJn1iY6UCC7X0lou/THO.nxnGGBYBn/wEyxu.hdXBI/QDZcGZW.', 0),
-(3, 'Kushang Limbu', 'kushanglimbu123@gmail.com', '$2y$10$1qgshlC2dfFIbKD52ioaReISOPCQ191gXgRDjPV/MtUIRCxs.dyBC', 1);
+(3, 'Kushang Limbu', 'kushanglimbu123@gmail.com', '$2y$10$1qgshlC2dfFIbKD52ioaReISOPCQ191gXgRDjPV/MtUIRCxs.dyBC', 1),
+(4, 'Rajiv Kumar Limbu', 'rajivkumar@gmail.com', '$2y$10$5hwpkFFq4Wz7QSGu16pxK.qkuq76NRUrZi0IHbGwIVmbFwzVz71DK', 0),
+(7, 'rajiv', 'rajivlimbu123@gmail.com', '$2y$10$cfEfqWO.UQYzbyx8oCd.ne5Vb7wAFCHI9KEAcD03KupXxys26TRxG', 0),
+(9, 'rajiv', 'rajivlimbu111@gmail.com', '$2y$10$J5z9ofM70VJgAuzqD8ePee6/Pb5/qLTzsV3RxfCyy6roRVpYwxcs.', 0),
+(10, 'Ing', 'iedhingolimbu@algomau.ca', '$2y$10$nvfcjTjhErGiSmCcFUhOUuI55xtcwnUqtppLXpaXyLLEadAoX4CLS', 1),
+(11, 'Gordan', 'gordan123@gmail.com', '$2y$10$./qfP6VxQRz.otOrF2dZsu9M1nNvcMf58RnpN43cX6mRQELNtVin2', 0);
 
 --
 -- Indexes for dumped tables
@@ -229,31 +247,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
